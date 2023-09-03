@@ -11,11 +11,19 @@ use Laravel\Sanctum\HasApiTokens;
 // Spatie: Roles y Permisos
 use Spatie\Permission\Traits\HasRoles;
 
+// Relaciones
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 class User extends Authenticatable
 {
     use HasRoles;
     use HasApiTokens, HasFactory, Notifiable;
+
+    public function pacientes(): HasMany{
+        return $this->hasMany(Paciente::class);
+    }
 
     /**
      * The attributes that are mass assignable.

@@ -11,6 +11,17 @@
                 {{-- <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in 9999!") }}
                 </div> --}}
+
+                {{-- <div class="flex items-center justify-end mt-4">
+                  <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+                      {{ __('nuevo usuario') }}
+                  </a>
+      
+                  <x-primary-button class="ml-4">
+                      {{ __('Register') }}
+                  </x-primary-button>
+              </div> --}}
+
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                   <div class="py-8">
                     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -30,17 +41,17 @@
                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
                                 Rol
                               </th>
-                             <th
+                             {{-- <th
                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
                                 Estado
-                              </th>
-                              <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100">
+                              </th> --}}
+                              {{-- <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100">
 
-                              </th>
+                              </th> --}}
                             </tr>
                           </thead>
                           <tbody>
-                            {{-- @foreach($users as $user) --}}
+                            @foreach($users as $user)
                             <tr>
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <div class="flex items-center">
@@ -50,25 +61,31 @@
                                   </div> --}}
                                   <div class="ml-3">
                                     <p class="text-gray-900 whitespace-no-wrap">
-                                      {{-- {{$user['name']}} --}}
+                                      {{$user['name']}}
                                     </p>
                                   </div>
                                 </div>
                               </td>
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap">
-                                      {{-- {{$user['email']}} --}}
+                                      {{$user['email']}}
                                 </p>
                               </td>
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                {{-- <span
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                  {{$user->roles->pluck('name')[0]}}
+                                </p>
+                              </td>
+                              {{-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                {{$user->roles->pluck('name')[0]}}
+                                <span
                                   class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                                   <span aria-hidden
                                     class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
                                   <span class="relative text-xs">{{$user->roles->pluck('name')[0]}}</span>
-                                </span> --}}
-                              </td>
-                              <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                </span>
+                              </td> --}}
+                              {{-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm"> --}}
                                 {{-- @if($user->status == 'verificado') --}}
                                   {{-- <span
                                   class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
@@ -91,12 +108,7 @@
                                     <span class="relative text-xs">{{$user->status}}</span>
                                   </span>
                                 @endif --}}
-
-
-
-
-
-                              </td>
+                              {{-- </td> --}}
                               {{-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap">Admin</p>
                               </td> --}}
@@ -108,9 +120,9 @@
                                   class="text-red-600 hover:text-indigo-900" data-modal-target="deleteUser{{ $user['id']}}" data-modal-toggle="deleteUser{{ $user['id'] }}">Borrar</a>
                               </td> --}}
 
-                              <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" >
+                              {{-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" >
                                 <div class="flex items-center">
-                                   {{-- <a href="#" id="open-modal"
+                                   <a href="#" id="open-modal"
                                   class="text-white bg-blue-500 hover:bg-blue-700 rounded-lg px-2 py-2 mr-1" data-modal-target="editUser{{ $user['id']}}" data-modal-toggle="editUser{{ $user['id']}}">
                                     Editar
                                     </a>
@@ -118,9 +130,9 @@
                                     <a href="#" id="open-modal"
                                   class="text-white bg-red-500 hover:bg-red-700 rounded-lg px-2 py-2 ml-1" data-modal-target="deleteUser{{ $user}}" data-modal-toggle="deleteUser{{ $user}}">
                                     Borrar
-                                    </a> --}}
+                                    </a> 
                                   </div>
-                              </td>
+                              </td> --}}
 
 
                             </tr>
@@ -129,7 +141,7 @@
                           {{--   @include('user.modaledit')
                             @include('user.modaldelete') --}}
 
-                            {{-- @endforeach --}}
+                            @endforeach
                           </tbody>
                         </table>
                       </div>

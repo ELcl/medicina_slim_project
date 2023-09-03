@@ -38,7 +38,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            {{-- @foreach($users as $user) --}}
+                            @foreach($casos as $caso)
                             <tr>
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <div class="flex items-center">
@@ -48,74 +48,52 @@
                                   </div> --}}
                                   <div class="ml-3">
                                     <p class="text-gray-900 whitespace-no-wrap">
-                                      {{-- {{$user['name']}} --}}
+                                      {{$caso['tipo']}}
                                     </p>
                                   </div>
                                 </div>
                               </td>
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap">
-                                      {{-- {{$user['email']}} --}}
+                                    @if($caso['sospecha']=='on')
+                                      <span class="material-symbols-outlined">
+                                        check
+                                      </span> 
+                                    @else
+                                    <span class="material-symbols-outlined">
+                                      close
+                                      </span>
+                                    @endif
+                                  
                                 </p>
                               </td>
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                {{-- <span
-                                  class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                  <span aria-hidden
-                                    class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                  <span class="relative text-xs">{{$user->roles->pluck('name')[0]}}</span>
-                                </span> --}}
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    @if($caso['reincidencia']=='on')
+                                      <span class="material-symbols-outlined">
+                                        check
+                                      </span> 
+                                    @else
+                                    <span class="material-symbols-outlined">
+                                      close
+                                      </span>
+                                    @endif
+                                  
+                                </p>
                               </td>
+                              
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                {{-- @if($user->status == 'verificado') --}}
-                                  {{-- <span
-                                  class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden
-                                      class="absolute inset-0 bg-green-400 opacity-50 rounded-full"></span>
-                                    <span class="relative text-xs">{{$user->status}}</span>
-                                  </span> --}}
-                                {{-- @elseif($user->status == 'espera') --}}
-                                  {{-- <span
-                                  class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden
-                                      class="absolute inset-0 bg-gray-400 opacity-50 rounded-full"></span>
-                                    <span class="relative text-xs">{{$user->status}}</span>
-                                  </span> --}}
-                                {{-- @elseif($user->status == 'suspendido')
-                                  <span
-                                  class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden
-                                      class="absolute inset-0 bg-red-400 opacity-50 rounded-full"></span>
-                                    <span class="relative text-xs">{{$user->status}}</span>
-                                  </span>
-                                @endif --}}
-
-
-
-
-
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                  {{$caso['transferencia']}}
+                                </p>
                               </td>
-                              {{-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">Admin</p>
-                              </td> --}}
-                              {{-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-left">
-                                <a href="#" id="open-modal"
-                                  class="text-indigo-600 hover:text-indigo-900" data-modal-target="editUser{{ $user['id']}}" data-modal-toggle="editUser{{ $user['id'] }}">Editar</a>
-                                  <br>
-                                  <a href="#" id="open-modal"
-                                  class="text-red-600 hover:text-indigo-900" data-modal-target="deleteUser{{ $user['id']}}" data-modal-toggle="deleteUser{{ $user['id'] }}">Borrar</a>
-                              </td> --}}
-
-
-
-
                             </tr>
                             <!-- More rows... -->
 
                           {{--   @include('user.modaledit')
                             @include('user.modaldelete') --}}
 
-                            {{-- @endforeach --}}
+                            @endforeach
                           </tbody>
                         </table>
                       </div>
