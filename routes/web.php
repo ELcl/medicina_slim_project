@@ -13,6 +13,7 @@ use App\Models\Paciente;
 use App\Http\Controllers\CasoController;
 use App\Models\Caso;
 
+use App\Http\Controllers\ReportController;
 // Permisos de Spatie
 use Spatie\Permission\Models\Permission;
 
@@ -57,6 +58,13 @@ Route::get('/formularios', function(){
     return view('formularios.index');
 })->name('formularios.index');
 
+// Reportes
+// Route::get('/reportepacientes', function(){
+//     $pdf = PDF::loadView('reporteusuarios');
+//     return $pdf->stream();
+// })->name('reporteP');
 
+Route::get('/reportepacientes', [ReportController::class, 'reporteUsuario'])->name('reporteP');
+Route::get('/reportecasos', [ReportController::class, 'reporteCasos'])->name('reporteC');
 
 require __DIR__.'/auth.php';

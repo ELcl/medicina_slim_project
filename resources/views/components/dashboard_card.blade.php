@@ -11,7 +11,7 @@
     <div class="content">
         {{-- <h3>{{ 'hola' }}</h3> --}}
         
-        <h3 class="text-gray-800 text-left">{{$title}}</h3>
+        <h3 class="text-gray-800 text-left dark:text-gray-300">{{$title}}</h3>
         {{-- <p>{{ $description }}</p> --}}
         {{-- <p>{{ '8 Cantidad' }}</p> --}}
     </div>

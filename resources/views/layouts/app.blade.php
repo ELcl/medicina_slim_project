@@ -11,12 +11,15 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        
-
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         {{-- Include Flowbite --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        {{-- Include Chart JS --}}
+        <script src="
+        https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js
+        "></script>
         {{-- Google Fonts --}}
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,200,0,0" />
     </head>
@@ -50,11 +53,7 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
-
-
-
-  
+                {{ $slot }}  
             </main>
         </div>
          
