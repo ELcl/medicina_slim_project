@@ -89,8 +89,6 @@ class PacienteController extends Controller
         $caso->save();
     
         return Redirect::route('pacientes.index')->with('status', 'Registro Exitoso');
-        // return "exito";
-        // return $request;
     }
 
     /**

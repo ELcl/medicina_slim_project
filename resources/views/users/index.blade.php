@@ -1,32 +1,23 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Lista de Usuarios') }}
         </h2>
-    </x-slot>
+      </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                {{-- <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in 9999!") }}
-                </div> --}}
-
-                {{-- <div class="flex items-center justify-end mt-4">
-                  <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                      {{ __('nuevo usuario') }}
-                  </a>
-      
-                  <x-primary-button class="ml-4">
-                      {{ __('Register') }}
-                  </x-primary-button>
-              </div> --}}
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                
 
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                   <div class="py-8">
+                    <button data-modal-target="creaUsuario" data-modal-toggle="creaUsuario" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                        Nuevo
+                    </button>
                     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                       <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                        <table class="min-w-full leading-normal">
+                        <table class="min-w-full leading-normal" id='users'>
                           <thead>
                             <tr>
                               <th
@@ -41,13 +32,7 @@
                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
                                 Rol
                               </th>
-                             {{-- <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
-                                Estado
-                              </th> --}}
-                              {{-- <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100">
-
-                              </th> --}}
+                             
                             </tr>
                           </thead>
                           <tbody>
@@ -55,10 +40,7 @@
                             <tr>
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <div class="flex items-center">
-                                  {{-- <div class="flex-shrink-0 w-10 h-10">
-                                    <img class="w-full h-full rounded-full"
-                                      src="https://randomuser.me/api/portraits/men/1.jpg" alt="" />
-                                  </div> --}}
+                                  
                                   <div class="ml-3">
                                     <p class="text-gray-900 whitespace-no-wrap">
                                       {{$user['name']}}
@@ -76,65 +58,6 @@
                                   {{$user->roles->pluck('name')[0]}}
                                 </p>
                               </td>
-                              {{-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                {{$user->roles->pluck('name')[0]}}
-                                <span
-                                  class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                  <span aria-hidden
-                                    class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                  <span class="relative text-xs">{{$user->roles->pluck('name')[0]}}</span>
-                                </span>
-                              </td> --}}
-                              {{-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm"> --}}
-                                {{-- @if($user->status == 'verificado') --}}
-                                  {{-- <span
-                                  class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden
-                                      class="absolute inset-0 bg-green-400 opacity-50 rounded-full"></span>
-                                    <span class="relative text-xs">{{$user->status}}</span>
-                                  </span> --}}
-                                {{-- @elseif($user->status == 'espera') --}}
-                                  {{-- <span
-                                  class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden
-                                      class="absolute inset-0 bg-gray-400 opacity-50 rounded-full"></span>
-                                    <span class="relative text-xs">{{$user->status}}</span>
-                                  </span> --}}
-                                {{-- @elseif($user->status == 'suspendido')
-                                  <span
-                                  class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden
-                                      class="absolute inset-0 bg-red-400 opacity-50 rounded-full"></span>
-                                    <span class="relative text-xs">{{$user->status}}</span>
-                                  </span>
-                                @endif --}}
-                              {{-- </td> --}}
-                              {{-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">Admin</p>
-                              </td> --}}
-                              {{-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-left">
-                                <a href="#" id="open-modal"
-                                  class="text-indigo-600 hover:text-indigo-900" data-modal-target="editUser{{ $user['id']}}" data-modal-toggle="editUser{{ $user['id'] }}">Editar</a>
-                                  <br>
-                                  <a href="#" id="open-modal"
-                                  class="text-red-600 hover:text-indigo-900" data-modal-target="deleteUser{{ $user['id']}}" data-modal-toggle="deleteUser{{ $user['id'] }}">Borrar</a>
-                              </td> --}}
-
-                              {{-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" >
-                                <div class="flex items-center">
-                                   <a href="#" id="open-modal"
-                                  class="text-white bg-blue-500 hover:bg-blue-700 rounded-lg px-2 py-2 mr-1" data-modal-target="editUser{{ $user['id']}}" data-modal-toggle="editUser{{ $user['id']}}">
-                                    Editar
-                                    </a>
-
-                                    <a href="#" id="open-modal"
-                                  class="text-white bg-red-500 hover:bg-red-700 rounded-lg px-2 py-2 ml-1" data-modal-target="deleteUser{{ $user}}" data-modal-toggle="deleteUser{{ $user}}">
-                                    Borrar
-                                    </a> 
-                                  </div>
-                              </td> --}}
-
-
                             </tr>
                             <!-- More rows... -->
 
@@ -144,6 +67,7 @@
                             @endforeach
                           </tbody>
                         </table>
+                        @include('users.modalcreate')
                       </div>
                     </div>
                   </div>
@@ -152,6 +76,29 @@
         </div>
     </div>
 
+    @section('js')
+      <script>
+        $('#users').DataTable({
+          // responsive: true,
+          // autoWidth: false,
+          select: true,
+
+          "language": {
+          "lengthMenu": "Mostrar _MENU_ registros por página",
+          "zeroRecords": "Ningún registro encontrado - Lo sentimos",
+          "info": "Mostrando la página _PAGE_ de _PAGES_",
+          "infoEmpty": "Ningún registro encontrado",
+          "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+          "search" : "Buscar",
+          "paginate":{
+            'next' : 'Siguiente',
+            'previous' : 'Anterior',
+          }
+          }
+
+        });
+      </script>
+    @endsection
 
 
 </x-app-layout>

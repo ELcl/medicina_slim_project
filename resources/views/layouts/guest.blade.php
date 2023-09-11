@@ -30,13 +30,13 @@
             </div>
             <div class= "flex flex-row m-6 pt-5">
                     <div class="mx-8">
-                        <img class="fill-current block h-20 rounded-full" src="{{ asset('img/medicina.jpeg')}}" />
-                    </div>
-                    <div class="mx-8">
-                        <img class="fill-current block  h-20 rounded-md" src="{{ asset('img/umsa.jpeg')}}" />    
+                        <img class="fill-current block h-20 rounded-full" src="{{ asset('img/umsa.jpeg')}}" />
                     </div>
                     <div class="mx-8">
                         <img class="fill-current block  h-20 rounded-md" src="{{ asset('img/dipgis.jpeg')}}" />    
+                    </div>
+                    <div class="mx-8">
+                        <img class="fill-current block  h-20 rounded-md" src="{{ asset('img/medicina.jpeg')}}" />    
                     </div>          
             </div>
         </div>

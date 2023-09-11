@@ -27,7 +27,8 @@ class RolesToUsersSeeder extends Seeder
         $user_2 = User::find(2);
         $rol_2 = Role::where('name','admin')->first();
         $user_2->assignRole($rol_2);
-        //Copro
+        
+        //Interno
         $user_3 = User::find(3);
         $rol_3 = Role::where('name','interno')->first();
         $user_3->assignRole($rol_3);

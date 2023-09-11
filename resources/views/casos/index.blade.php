@@ -1,21 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Lista de Casos') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                {{-- <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in 9999!") }}
-                </div> --}}
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+               
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                   <div class="py-8">
                     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                       <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                        <table class="min-w-full leading-normal">
+                        <table class="min-w-full leading-normal" id='casos'>
                           <thead>
                             <tr>
                               <th
@@ -42,10 +40,7 @@
                             <tr>
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <div class="flex items-center">
-                                  {{-- <div class="flex-shrink-0 w-10 h-10">
-                                    <img class="w-full h-full rounded-full"
-                                      src="https://randomuser.me/api/portraits/men/1.jpg" alt="" />
-                                  </div> --}}
+                                  
                                   <div class="ml-3">
                                     <p class="text-gray-900 whitespace-no-wrap">
                                       {{$caso['tipo']}}
@@ -84,7 +79,35 @@
                               
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap">
-                                  {{$caso['transferencia']}}
+                                  
+                                  @if($caso['transferencia'] == 'traumatologia')
+                                    {{'Traumatología'}}
+                                  
+                                  @elseif($caso['transferencia'] == 'psicologia')
+                                    {{'Psicología'}}
+                                  
+                                  @elseif($caso['transferencia'] == 'ginecologia')
+                                    {{'Ginecología'}}
+                                  
+                                  @elseif($caso['transferencia'] == 'cirugia')
+                                    {{'Cirugía'}}
+                                  
+                                  @elseif($caso['transferencia'] == 'psiquiatria')
+                                    {{'Psiquiatría'}}
+                                  
+                                  @elseif($caso['transferencia'] == 'neurologia')
+                                    {{'Neurología'}}
+                                  
+                                  @elseif($caso['transferencia']== 'infectologia')
+                                    {{'Infectología'}}
+                                  
+                                  @elseif($caso['transferencia'] == 'oncologia')
+                                    {{'Oncología'}}
+                                  
+                                  @elseif($caso['transferencia'] == 'otros')
+                                    {{'Otros'}}
+                                  
+                                  @endif
                                 </p>
                               </td>
                             </tr>
@@ -104,6 +127,28 @@
         </div>
     </div>
 
+    @section('js')
+    <script>
+      $('#casos').DataTable({
+        // responsive: true,
+        // autoWidth: false,
+        select: true,
 
+        "language": {
+        "lengthMenu": "Mostrar _MENU_ registros por página",
+        "zeroRecords": "Ningún registro encontrado - Lo sentimos",
+        "info": "Mostrando la página _PAGE_ de _PAGES_",
+        "infoEmpty": "Ningún registro encontrado",
+        "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+        "search" : "Buscar",
+        "paginate":{
+          'next' : 'Siguiente',
+          'previous' : 'Anterior',
+        }
+        }
+
+      });
+    </script>
+  @endsection
 
 </x-app-layout>

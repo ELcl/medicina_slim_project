@@ -1,3 +1,3 @@
 Dashboard
- - Reportes en PDF: Pacientes y hechos de violencia
- - Dashboard con posibilidad de graficos
+  - Registro de Usuarios
+  - Datatable en usuarios, casos y pacientes

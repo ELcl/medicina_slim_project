@@ -17,14 +17,22 @@ use App\Http\Controllers\ReportController;
 // Permisos de Spatie
 use Spatie\Permission\Models\Permission;
 
+// Import para dashboard
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Dashboard
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -49,22 +57,17 @@ Route::middleware('auth')->group(function () {
 // Casos
     Route::get('/caso', [CasoController::class, 'index'])->name('casos.index');
     Route::get('/caso/create', [CasoController::class, 'create'])->name('casos.create');
-    Route::post('/user', [CasoController::class, 'store'])->name('casos.store');
+    Route::post('/caso  ', [CasoController::class, 'store'])->name('casos.store');
     Route::patch('/caso/{caso}', [CasoController::class, 'update'])->name('casos.update');
     Route::delete('/caso/{caso}', [CasoController::class, 'destroy'])->name('casos.destroy');
 
 // Formularios
-Route::get('/formularios', function(){
-    return view('formularios.index');
-})->name('formularios.index');
+    Route::get('/formularios', function(){
+        return view('formularios.index');
+    })->name('formularios.index');
 
 // Reportes
-// Route::get('/reportepacientes', function(){
-//     $pdf = PDF::loadView('reporteusuarios');
-//     return $pdf->stream();
-// })->name('reporteP');
-
-Route::get('/reportepacientes', [ReportController::class, 'reporteUsuario'])->name('reporteP');
-Route::get('/reportecasos', [ReportController::class, 'reporteCasos'])->name('reporteC');
+    Route::get('/reportepacientes', [ReportController::class, 'reporteUsuario'])->name('reporteP');
+    Route::get('/reportecasos', [ReportController::class, 'reporteCasos'])->name('reporteC');
 
 require __DIR__.'/auth.php';
