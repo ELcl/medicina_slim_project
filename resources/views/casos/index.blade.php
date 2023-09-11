@@ -18,6 +18,10 @@
                             <tr>
                               <th
                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                                Nro
+                              </th>
+                              <th
+                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
                                 Tipo
                               </th>
                               <th
@@ -40,7 +44,15 @@
                             <tr>
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <div class="flex items-center">
-                                  
+                                  <div class="ml-3">
+                                    <p class="text-gray-900 whitespace-no-wrap">
+                                      {{$loop->iteration}}
+                                    </p>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <div class="flex items-center">
                                   <div class="ml-3">
                                     <p class="text-gray-900 whitespace-no-wrap">
                                       {{$caso['tipo']}}
@@ -51,13 +63,15 @@
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap">
                                     @if($caso['sospecha']=='on')
-                                      <span class="material-symbols-outlined">
+                                      {{-- <span class="material-symbols-outlined">
                                         check
-                                      </span> 
+                                      </span>  --}}
+                                      SI
                                     @else
-                                    <span class="material-symbols-outlined">
+                                    {{-- <span class="material-symbols-outlined">
                                       close
-                                      </span>
+                                      </span> --}}
+                                      NO
                                     @endif
                                   
                                 </p>
@@ -65,13 +79,15 @@
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap">
                                     @if($caso['reincidencia']=='on')
-                                      <span class="material-symbols-outlined">
+                                      {{-- <span class="material-symbols-outlined">
                                         check
-                                      </span> 
+                                      </span>  --}}
+                                      SI
                                     @else
-                                    <span class="material-symbols-outlined">
+                                    {{-- <span class="material-symbols-outlined">
                                       close
-                                      </span>
+                                      </span> --}}
+                                      NO
                                     @endif
                                   
                                 </p>

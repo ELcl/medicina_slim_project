@@ -1,3 +1,2 @@
 Dashboard
-  - Registro de Usuarios
-  - Datatable en usuarios, casos y pacientes
+  - Reporte de PDF por municipio y total

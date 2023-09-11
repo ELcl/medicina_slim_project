@@ -1,92 +1,4 @@
-{{-- <!DOCTYPE html>
-<html >
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-      
-        <title>{{ 'Lista de Usuarios' }}</title>
 
-       
-    </head>
-    <body>
-        
-            <table>
-                <thead>
-                    <tr">
-                        <th>Nombre</th>
-                        <th>Edad</th>
-                        <th>Sexo</th>
-                        <th>Residencia</th>
-                    </tr>                    
-                </thead>
-                <tbody>
-                    @foreach($pacientes as $paciente)
-                    <tr>
-                        <td>{{$paciente['nombre']}}</td>
-                        <td>{{$paciente['edad']}}</td>
-                        <td>@if($paciente['sexo']=='h')
-                            {{'Hombre'}}
-                            @else
-                            {{'Mujer'}}
-                            @endif
-                        </td>
-                        <td>{{$paciente['residencia']}}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
-            <h1 style="font-family: cursive">
-                Hello world!
-            </h1>  
-        
-    </body>
-</html> --}}
-{{-- <!doctype html>
-<html lang="en">
-    
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-    <table class="table" border="2">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
-</html> --}}
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,39 +35,61 @@ th {
 </head>
 <body>
   <h1><center>Datos - Casos de Violencia</center></h1>
-    <table>
-        <thead>
+  <h2>Por Municipios</h2>
+  <table>
+    <thead>
+        <tr>
+            <th>Residencia</th>
+            <th>Número de Casos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($consulta as $residencia => $datosPacientes)
             <tr>
-                <th>Tipo</th>
-                <th>Sospecha</th>
-                <th>Reincidencia</th>
-                <th>Transferencia</th>
-            </tr>                    
-        </thead>
-        <tbody>
-            @foreach($casos as $caso)
-            <tr>
-                <td>{{$caso['tipo']}}</td>
-                <td>
-                    @if($caso['sospecha']=='on')
-                                      SI
-                                    @else
-                                    NO
-                                    @endif
-                
-                </td>
-                <td>
-                    @if($caso['reincidencia']=='on')
-                                      <span class="material-symbols-outlined">
-                                      SI
-                                    @else
-                                    NO
-                                    @endif
-                </td>
-                <td>{{$caso['transferencia']}}</td>
+                <td>{{ $residencia }}</td>
+                <td>{{ count($datosPacientes) }}</td>
             </tr>
-            @endforeach
-        </tbody>
-    </table>
+        @endforeach
+    </tbody>
+</table>
+
+<h2>Total</h2>
+    <table>
+      <thead>
+          <tr>
+              <th>Nro</th>
+              <th>Municpios</th>
+              <th>Sospecha</th>
+              <th>Reincidencia</th>
+              <th>Nro Transferencias</th>
+          </tr>                    
+      </thead>
+      <tbody>
+          @foreach($casos as $caso)
+          <tr>
+              <td>{{$loop->iteration}}</td>
+              <td>{{$caso['tipo']}}</td>
+              <td>
+                  @if($caso['sospecha']=='on')
+                                    SI
+                                  @else
+                                  NO
+                                  @endif
+              </td>
+              <td>
+                  @if($caso['reincidencia']=='on')
+                                    <span class="material-symbols-outlined">
+                                    SI
+                                  @else
+                                  NO
+                                  @endif
+              </td>
+              <td>{{$caso['transferencia']}}</td>
+          </tr>
+          @endforeach
+      </tbody>
+  </table>
+
+
 </body>
 </html>
