@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c2720aca7d6ffa60a0596d2040c5606",
+    "content-hash": "b5bed161d3f6e13cccce4cc41d1a22ec",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1112,6 +1112,63 @@
                 }
             ],
             "time": "2021-10-07T12:57:01+00:00"
+        },
+        {
+            "name": "laravel-latam/spanish",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-latam/spanish.git",
+                "reference": "df9c9e6884372e3916e9b549f63f9c10473a773e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-latam/spanish/zipball/df9c9e6884372e3916e9b549f63f9c10473a773e",
+                "reference": "df9c9e6884372e3916e9b549f63f9c10473a773e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.0|^10.0",
+                "laravel/framework": "^9.0|^10.0",
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelLatam\\Spanish\\SpanishServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelLatam\\Spanish\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Neftalí Yagua",
+                    "email": "despacho@neftaliyagua.com",
+                    "homepage": "https://neftaliyagua.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Spanish Package for Laravel",
+            "homepage": "https://github.com/laravel-latam/spanish",
+            "keywords": [
+                "laravel",
+                "latam",
+                "spanish"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel-latam/spanish/issues",
+                "source": "https://github.com/laravel-latam/spanish/tree/1.1.0"
+            },
+            "time": "2023-05-27T19:47:06+00:00"
         },
         {
             "name": "laravel/framework",

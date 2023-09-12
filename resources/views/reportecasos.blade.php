@@ -58,7 +58,7 @@ th {
       <thead>
           <tr>
               <th>Nro</th>
-              <th>Municpios</th>
+              <th>Municipios</th>
               <th>Sospecha</th>
               <th>Reincidencia</th>
               <th>Nro Transferencias</th>

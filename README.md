@@ -1,2 +1,3 @@
 Dashboard
-  - Reporte de PDF por municipio y total
+  - Paquete de español instalado
+  
