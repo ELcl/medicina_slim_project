@@ -8,9 +8,31 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-               
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                   <div class="py-8">
+                    {{-- Filtrado de las consultas --}}
+                    {{-- <div class="flex"> --}}
+                      {{-- <form class="flex items-center space-x-2" method="POST" action="{{route('reporteF')}}">
+                        @csrf
+                        @method('POST')
+                        <div class="px-4 py-2 rounded-l">
+                          <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rol</label>
+                          <select name="rol" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                              <option value="interno" selected="" >Interno</option>
+                              <option value="admin"               >Admin</option>                           
+                          </select>
+                      </div> --}}
+                        {{-- <input type="text" name="descripcion" class="px-4 py-2 border border-gray-300 rounded-l" placeholder="Descripción" required> --}}
+                        {{-- <input type="number" name="monto" class="px-4 py-2 border border-gray-300 rounded-r" placeholder="Monto" required> --}}
+                        {{-- <input type="date" name="fecha" class="px-4 py-2 border border-gray-300 rounded-r" placeholder="fecha" required> --}}
+                        {{-- <input type="file" name="imagen" class="border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"> --}}
+                        
+                        {{-- <button class="px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded">REPORTE</button>
+                        <a href="#" class="bg-gray-400 hover:bg-blue-700 text-white font-bold py-3 px-4 my-1" data-modal-toggle="modal_expensa">Expensa</a>
+                      </form>
+                    </div> --}}
+                    {{-- Fin del Filtrado --}}
+                    
                     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                       <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                         <table class="min-w-full leading-normal" id='casos'>

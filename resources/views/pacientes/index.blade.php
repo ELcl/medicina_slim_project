@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    
+
     {{-- @section('css')
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.tailwindcss.min.css">
         

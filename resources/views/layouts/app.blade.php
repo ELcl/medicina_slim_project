@@ -13,16 +13,19 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        {{-- Include Flowbite --}}
+        {{-- Oficial UI Component --}}
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        {{-- Include Flowbite for tailwind components --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+            {{-- Graphics library --}}
+            {{-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> --}}
         {{-- Include Chart JS --}}
-        <script src="
+        {{-- <script src="
         https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js
-        "></script>
+        "></script> --}}
         {{-- Google Fonts --}}
         {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,200,0,0" /> --}}
-        {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.tailwindcss.min.css">   --}}
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.tailwindcss.min.css">  
 
         {{-- @yield('css') --}}
 

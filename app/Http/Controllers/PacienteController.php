@@ -57,8 +57,6 @@ class PacienteController extends Controller
             'transferencia' => 'alpha | nullable',
         ]);
 
-        
-
         // Paciente
         $paciente = new Paciente;
         $paciente->nombre = $request->nombre;

@@ -28,24 +28,21 @@ class ReportController extends Controller
         $casos = Caso::get();
         $pacientes = Paciente::get();
 
-        // $estadisticas = ['casos' => $casos, 'pacientes' => $pacientes];
-        // return $estadisticas;
-        // $estadisticas = 
-//         $estadisticas = DB::table('pacientes')->join('casos', 'user_id', '=', 'casos.paciente_id')
-// ->select('residencia');
-//         return $estadisticas;
-
         $consulta = Paciente::select('pacientes.residencia', 'casos.tipo', 'casos.sospecha', 'casos.reincidencia')
         ->leftJoin('casos', 'pacientes.id', '=', 'casos.paciente_id')
         ->get()
         ->groupBy('residencia');
 
-        // $pdf = PDF::loadView('reportecasos', ['consulta' => $consulta]);
-
-        // return $pdf->stream();
-
         $pdf = PDF::loadView('reportecasos', ['casos' => $casos, 'consulta'=> $consulta]);
 
         return $pdf->stream();
+    }
+
+    public function reporteCasosFiltrado(Request $request){
+        return $request;
+        $casos = Caso::get();
+        $pacientes = Paciente::get();
+
+
     }
 }

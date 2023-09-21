@@ -69,5 +69,6 @@ Route::middleware('auth')->group(function () {
 // Reportes
     Route::get('/reportepacientes', [ReportController::class, 'reporteUsuario'])->name('reporteP');
     Route::get('/reportecasos', [ReportController::class, 'reporteCasos'])->name('reporteC');
+    Route::post('/reportecasosfiltrado', [ReportController::class, 'reporteCasosFiltrado'])->name('reporteF');
 
 require __DIR__.'/auth.php';
