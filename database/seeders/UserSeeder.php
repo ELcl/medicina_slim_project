@@ -16,6 +16,12 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
+            'name' => 'Root',
+            'email' => 'root@dipgis.umsa.bo',
+            'password' => bcrypt('R00t$%'),
+        ]);
+
+        User::create([
             'name' => 'Slim',
             'email' => 'slimumsa@dipgis.umsa.bo',
             'password' => bcrypt('Sl1mums4'),

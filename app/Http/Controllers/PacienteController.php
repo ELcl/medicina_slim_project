@@ -19,10 +19,12 @@ class PacienteController extends Controller
         // dd(auth()->user()->id);
         if(auth()->user()->id == 2){
             // dd('admin');
-            $pacientes = Paciente::get();
+            $pacientes = Paciente::orderBy('created_at', 'desc')->get();
+            //dd($pacientes);
         }else{
             // dd('interno');
-            $pacientes = Paciente::where('user_id', auth()->user()->id)->get();
+            $pacientes = Paciente::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
+            //dd($pacientes);
         }
         return view ('pacientes.index', ['pacientes' => $pacientes]);
     }
