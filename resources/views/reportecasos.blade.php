@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="{{ asset('css/app.css')}}" rel="stylesheet">
-    <title>Title</title>
+    <title>Reporte - Estadisticas</title>
 
     <style>
       table {
@@ -37,21 +37,70 @@ th {
   <h1><center>Datos - Casos de Violencia</center></h1>
   <h2>Por Municipios</h2>
   <table>
-    <thead>
-        <tr>
-            <th>Residencia</th>
-            <th>Número de Casos</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($consulta as $residencia => $datosPacientes)
+        <thead>
             <tr>
-                <td>{{ $residencia }}</td>
-                <td>{{ count($datosPacientes) }}</td>
+                <th>Residencia</th>
+                <th>Número de Casos</th>
             </tr>
-        @endforeach
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach ($consulta as $residencia => $datosPacientes)
+                <tr>
+                    <td>{{ $residencia }}</td>
+                    <td>{{ count($datosPacientes) }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+    <h2>Por Edad</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Rango Etáreo</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{'Niños(0-18)'}}</td>
+                <td>{{$ninos}}</td>
+            </tr>
+            <tr>
+                <td>{{'Adolescentes(13-17)'}}</td>
+                <td>{{$adolescentes}}</td>
+            </tr>
+            <tr>
+                <td>{{'Adultos(18-64)'}}</td>
+                <td>{{$adultos}}</td>
+            </tr>
+            <tr>
+                <td>{{'Adultos Mayores(65 - mas)'}}</td>
+                <td>{{$adultosm}}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <h2>Por Sexo</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Sexo</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{'Hombres'}}</td>
+                <td>{{$hombres}}</td>
+            </tr>
+            <tr>
+                <td>{{'Mujeres'}}</td>
+                <td>{{$mujeres}}</td>
+            </tr>            
+        </tbody>
+    </table>
 
 <h2>Total</h2>
     <table>
